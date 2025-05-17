@@ -5,7 +5,7 @@ website="$WEBFLOW_WEBSITE"
 
 echo "Starting site fetch for $website..."
 
-response=$(curl -s -H "Content-Type: application/json" "{\"url\":\"$website\"}" https://09nc56i46a.execute-api.eu-north-1.amazonaws.com/export | tr -d '\n\r')
+response=$(curl -s -H "Content-Type: application/json" --data "{\"url\":\"$website\"}" https://09nc56i46a.execute-api.eu-north-1.amazonaws.com/export | tr -d '\n\r')
 
 # Remove everything before the first "s3Link":"
 tmp=${response#*\"s3Link\": \"}
